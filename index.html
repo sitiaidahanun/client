@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RuangPerpus</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
+    <style>
+      .ruangguru-blue {
+        background-color: #620045;
+      }
+
+      .ruangguru-blue:hover {
+        background-color: #d460b5;
+      }
+
+      .footer {
+        background-color: #ffaddb;
+        padding: 16px;
+        text-align: center;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .content {
+        flex: 1;
+      }
+
+      h1, h2 {
+        font-family: 'Merriweather', serif; /* Heading font */
+      }
+
+      p, label, input, table {
+        font-family: 'Open Sans', sans-serif; /* Text and form font */
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="ruangguru-blue py-4" id="header">
+      <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-white" onclick="(() => {currentPage = 'home'; loadPage()})()">RuangPerpus</h1>
+        <nav>
+          <ul class="flex space-x-4 text-white">
+            <li><a href="#" class="hover:text-blue-200">Add</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="content container mx-auto p-4">
+      <!-- Tempat untuk render tabel buku dan form -->
+      <div id="book-form" class="hidden">
+        <h2 class="text-xl font-bold mb-4">Add Book</h2>
+        <form id="add-book-form">
+          <div class="mb-4">
+            <label for="title" class="block text-gray-700">Title:</label>
+            <input type="text" id="title" class="border rounded p-2 w-full" required />
+          </div>
+          <div class="mb-4">
+            <label for="author" class="block text-gray-700">Author:</label>
+            <input type="text" id="author" class="border rounded p-2 w-full" required />
+          </div>
+          <div class="mb-4">
+            <label for="year" class="block text-gray-700">Year:</label>
+            <input type="number" id="year" class="border rounded p-2 w-full" required />
+          </div>
+          <div class="mb-4">
+            <label for="quantity" class="block text-gray-700">Quantity:</label>
+            <input type="number" id="quantity" class="border rounded p-2 w-full" required />
+          </div>
+          <button type="submit" class="ruangguru-blue text-white py-2 px-4 rounded">Add Book</button>
+        </form>
+      </div>
+
+      <h2 class="text-xl font-bold mb-4">Book List</h2>
+      <table class="min-w-full border border-gray-300">
+        <thead>
+          <tr>
+            <th class="border px-4 py-2">Title</th>
+            <th class="border px-4 py-2">Author</th>
+            <th class="border px-4 py-2">Year</th>
+            <th class="border px-4 py-2">Quantity</th>
+            <th class="border px-4 py-2">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+      </table>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2023 RuangPerpus. All rights reserved.</p>
+      <p class="studentName">Siti Aida Hanun</p>
+      <p class="studentId">CAMP123456789</p>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>
